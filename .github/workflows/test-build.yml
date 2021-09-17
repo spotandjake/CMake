@@ -1,0 +1,28 @@
+name: Test Build
+
+on: [push, pull_request]
+
+jobs:
+  test-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-latest
+          - macos-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install esy
+        run: |
+          npm install -g esy
+
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          esy

@@ -28,3 +28,7 @@
 /.vs/
 # Visual Studio build directory
 /out/
+
+Bootstrap.cmk
+_esy
+node_modules
