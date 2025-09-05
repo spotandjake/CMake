@@ -10,12 +10,14 @@ jobs:
         os:
           - windows-latest
           - macos-latest
+          - macos-13
+          - macos-15
           - ubuntu-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install esy
         run: |
